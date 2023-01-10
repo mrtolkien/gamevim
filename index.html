@@ -276,26 +276,6 @@
     NORMAL mode
   </a>
   
-    <nav class="md-nav" aria-label="NORMAL mode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#left-hand" class="md-nav__link">
-    Left hand
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#right-hand" class="md-nav__link">
-    Right hand
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -337,26 +317,6 @@
     NORMAL mode
   </a>
   
-    <nav class="md-nav" aria-label="NORMAL mode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#left-hand" class="md-nav__link">
-    Left hand
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#right-hand" class="md-nav__link">
-    Right hand
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -379,12 +339,27 @@
 
 
 <h1 id="keymap">Keymap</h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition example">
+<p class="admonition-title">WiP</p>
 <p>This is a very early prototype and heavily work in progress!</p>
 </div>
 <h2 id="normal-mode">NORMAL mode</h2>
-<h3 id="left-hand">Left hand</h3>
+<details class="info">
+<summary>Shift is the main modifier</summary>
+<ul>
+<li>Behaves the same on every operating system</li>
+<li>Most accessible modifier by default</li>
+</ul>
+</details>
+<details class="tip">
+<summary>Left hand is focused on motions</summary>
+<ul>
+<li>This includes entering <code>INSERT</code> mode</li>
+<li><code>X</code> and <code>C</code> do not map to <code>Cut</code> or <code>Copy</code> operators because motions become too left-hand heavy</li>
+</ul>
+</details>
+<!--  TODO Add % somewhere? ADD TRUE START OF LINE FOR PASTING LINES-->
+
 <table>
 <thead>
 <tr>
@@ -397,29 +372,72 @@
 </thead>
 <tbody>
 <tr>
-<td><code>q</code><br><code>Q</code></td>
+<td><code>q</code> Replace char<br><code>Q</code> Replace mode</td>
 <td><code>w</code> Previous word<br><code>W</code> Previous End of Word</td>
 <td><code>e</code> Up<br><code>E</code> Half page up</td>
 <td><code>r</code> Next word<br><code>R</code> Previous word</td>
-<td><code>t</code><br><code>T</code></td>
+<td><code>t</code> Delete char and insert<br><code>T</code> Delete line and insert</td>
 </tr>
 <tr>
 <td><code>a</code> Insert before cursor<br><code>A</code> Insert start of line</td>
 <td><code>s</code> Left<br><code>S</code> Start of line (non-blank)</td>
 <td><code>d</code> Down<br><code>D</code> Half page down</td>
-<td><code>f</code> Right<br><code>F</code> End of line</td>
+<td><strong><code>f</code> Right<br><code>F</code> End of line</strong></td>
 <td><code>g</code> Insert after cursor<br><code>G</code> Insert end of line</td>
 </tr>
 <tr>
-<td><code>z</code> Undo<br><code>Z</code> Redo</td>
-<td><code>x</code> Cut character<br><code>X</code> Cut row</td>
-<td><code>c</code> Visual mode (Copy)<br><code>C</code> Copy line</td>
-<td><code>v</code> Paste<br><code>V</code></td>
+<td><code>zc</code> Move after next c<br><code>Zc</code>Move before previous c</td>
+<td><code>xc</code> Move to next <code>c</code><br><code>Xc</code> Move to previous <code>c</code></td>
+<td><code>c</code> Delete char<br><code>C</code> Delete line</td>
+<td><code>v</code> Repeat last motion<br><code>V</code> Repeat last motion reversed</td>
 <td><code>b</code> Insert new line<br><code>B</code> Insert new line above</td>
 </tr>
 </tbody>
 </table>
-<h3 id="right-hand">Right hand</h3>
+<details class="tip">
+<summary>Right hand is focused on operators</summary>
+<ul>
+<li>Repeat is front and center</li>
+<li>Del, Change, Copy are simple to access</li>
+<li>Replace char is a WiP, might need to give way to a more important key</li>
+</ul>
+</details>
+<table>
+<thead>
+<tr>
+<th>Left hand keymap</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>y</code> Plugins<br><code>Y</code></td>
+<td><code>u</code> <code>g</code> operator<br><code>U</code> Go to end of file</td>
+<td><code>i</code> Change operator<br><code>I</code> Change to end of current line</td>
+<td><code>o</code> <br><code>O</code></td>
+<td><code>p</code><br><code>P</code></td>
+</tr>
+<tr>
+<td><code>h</code> Plugins<br><code>H</code></td>
+<td><strong><code>j</code> Undo<br><code>J</code> Redo</strong></td>
+<td><code>k</code> Delete operator<br><code>K</code> Delete to end of line</td>
+<td><code>l</code> Paste register<br><code>L</code> Paste clipboard</td>
+<td><code>;</code><br><code>:</code> Commands</td>
+</tr>
+<tr>
+<td><code>n</code> Plugins<br><code>N</code></td>
+<td><code>m</code> Repeat last command<br><code>M</code></td>
+<td><code>,</code> Copy operator<br><code>&lt;</code> Copy line</td>
+<td><code>.</code> Visual mode<br><code>&gt;</code> Visual line mode</td>
+<td><code>/</code> <code>z</code> operator<br><code>?</code></td>
+</tr>
+</tbody>
+</table>
+<!-- TODO Add U (undo changes on one line), <C-o>, !macros!, J join -->
+<!-- TODO Understand how undo movement actually works and give it a key! -->
 
 
 
